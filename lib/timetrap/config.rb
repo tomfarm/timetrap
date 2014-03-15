@@ -12,7 +12,7 @@ module Timetrap
     def defaults
       {
         # Path to the sqlite db
-        'database_file' => "#{ENV['HOME']}/.timetrap.db",
+        'database_url' => ENV["TIMETRAP_DB_URL"],
         # Unit of time for rounding (-r) in seconds
         'round_in_seconds' => 900,
         # delimiter used when appending notes with `t edit --append`
