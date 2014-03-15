@@ -249,7 +249,7 @@ COMMAND is one of:
     end
 
     def backend
-      exec "sqlite3 #{DB_NAME}"
+      exec "psql #{DB_URL}"
     end
 
     def in

@@ -423,7 +423,7 @@ See ``t configure`` for details.  Currently supported options are:
 
   **round_in_seconds**: The duration of time to use for rounding with the -r flag
 
-  **database_file**: The file path of the sqlite database
+  **database_url**: The url of the database (postgres)
 
   **append_notes_delimiter**: delimiter used when appending notes via
                               `t edit --append`

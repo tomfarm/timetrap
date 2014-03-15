@@ -13,10 +13,14 @@ require File.join(File.dirname(__FILE__), 'timetrap', 'cli')
 require File.join(File.dirname(__FILE__), 'timetrap', 'timer')
 require File.join(File.dirname(__FILE__), 'timetrap', 'formatters')
 require File.join(File.dirname(__FILE__), 'timetrap', 'auto_sheets')
+
 module Timetrap
-  DB_URL = defined?(TEST_MODE) ? nil : Timetrap::Config['database_url']
-  # connect to database.  This will create one if it doesn't exist
-  DB = Sequel.connect(DB_URL)
+  # connect to database.  This will create one if it doesn't exist  
+  DB_URL = Timetrap::Config['database_url']
+
+  DB = defined?(TEST_MODE) ? Sequel.sqlite :
+                             Sequel.connect(Timetrap::Config['database_url'])
+      
   CLI.args = Getopt::Declare.new(<<-EOF)
     #{CLI::USAGE}
   EOF

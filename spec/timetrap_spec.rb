@@ -281,7 +281,7 @@ describe Timetrap do
 
       describe "backend" do
         it "should open an sqlite console to the db" do
-          Timetrap::CLI.should_receive(:exec).with("sqlite3 #{Timetrap::DB_NAME}")
+          Timetrap::CLI.should_receive(:exec).with("psql #{Timetrap::DB_URL}")
           invoke 'backend'
         end
       end
